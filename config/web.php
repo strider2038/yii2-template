@@ -16,6 +16,9 @@
 $web = [
     'id' => 'app-web',
     'defaultRoute' => 'site/index',
+    'bootstrap' => [
+        'ajaxDebugger' => 'ajaxDebugger'
+    ],
     'components' => [
         'user' => [
             'identityClass' => 'app\models\User',
@@ -79,6 +82,10 @@ $web = [
                 '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
             ],
         ],
+        'ajaxDebugger' => [
+            'class' => 'strider2038\ajaxdebugger\DebugDetector',
+            'enabled' => YII_ENV_DEV && !empty($_GET['_debug']),
+        ]
     ],
     'params' => [
         
